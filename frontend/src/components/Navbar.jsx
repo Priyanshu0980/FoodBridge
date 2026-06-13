@@ -13,22 +13,25 @@ const Navbar = () => {
   };
 
   return (
-    <nav style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem', borderBottom: '1px solid #ccc' }}>
-      <h2>NGO Food Rescue</h2>
-      <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
+    <nav className="navbar">
+      <div className="nav-brand">
+        <h2>🥗 Food Rescue</h2>
+      </div>
+      
+      <div className="nav-links">
         <Link to="/">Home</Link>
-        <Link to="/analytics">Analytics</Link>
+        <Link to="/analytics">Impact</Link>
         
         {!token ? (
           <>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
+            <Link to="/login" className="nav-link">Login</Link>
+            <Link to="/register" className="btn-primary small-btn">Register</Link>
           </>
         ) : (
           <>
             {role === 'Donor' && <Link to="/donor">Dashboard</Link>}
             {role === 'NGO' && <Link to="/ngo">Dashboard</Link>}
-            <button onClick={handleLogout} style={{ cursor: 'pointer' }}>Logout</button>
+            <button onClick={handleLogout} className="btn-outline-danger">Logout</button>
           </>
         )}
       </div>
