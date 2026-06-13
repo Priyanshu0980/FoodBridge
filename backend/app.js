@@ -5,7 +5,10 @@ const donationRoutes = require('./routes/donationRoutes');
 
 const app = express();
 
-app.use(cors('http://localhost:5173', 'https://food-bridge-phi-one.vercel.app/'));
+app.use(cors({
+    origin: ['http://localhost:5173', 'https://food-bridge-phi-one.vercel.app/register'],
+    credentials: true
+}));
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
