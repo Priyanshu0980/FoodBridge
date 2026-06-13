@@ -192,6 +192,7 @@ nav a:hover {
   background-color: var(--primary-hover);
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(168, 253, 172, 0.3);
+  color: white
 }
 
 /* Danger Button Hover (Card Override Button) */
