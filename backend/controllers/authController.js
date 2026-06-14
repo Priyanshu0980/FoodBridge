@@ -2,14 +2,6 @@ const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-/*
-Listen carefully to what we are doing here. 
-First, we extract exactly what we need from the incoming request body. 
-Instead of just blindly tossing this data to the database and hoping it works, 
-we act as a strict gatekeeper. We explicitly check: "Hey, did the frontend actually send the name, email, password, and role?" 
-If even one of these is missing or undefined, we immediately kick the request back with a 400 error. 
-Only after passing this check do we move forward to check for existing users, hash the password, and save.
-*/
 
 const register = async (req, res) => {
     try {

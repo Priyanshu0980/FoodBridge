@@ -4,12 +4,12 @@ const DonationCard = ({ donation, role, onClaim, onComplete }) => {
   const badgeClass = donation.status === 'available' ? 'status-available' : 
                      donation.status === 'claimed' ? 'status-claimed' : 'status-completed';
 
-  // Super clean function to download the QR code as an SVG image
+
   const downloadQR = () => {
     const canvas = document.getElementById(`qr-${donation._id}`);
     if (!canvas) return; 
     
-    // Grabs the canvas pixels and converts to a PNG link
+
     const pngUrl = canvas.toDataURL("image/png");
     const link = document.createElement("a");
     link.href = pngUrl;
@@ -30,7 +30,7 @@ const DonationCard = ({ donation, role, onClaim, onComplete }) => {
         <p>⏰ <strong>Time:</strong> {donation.pickupTime}</p>
       </div>
 
-      {/* --- THE NEW QR CONTAINER WITH DOWNLOAD BUTTON --- */}
+      
       {role === 'Donor' && donation.status === 'claimed' && donation.qrCode && (
         <div className="qr-container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
           <p className="qr-title">Scan for Pickup</p>

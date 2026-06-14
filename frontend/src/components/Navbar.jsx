@@ -24,7 +24,7 @@ const Navbar = () => {
         
         {!token ? (
           <>
-            {/* Login is now a styled button with a hover effect */}
+            
             <Link to="/login" className="btn-outline-primary small-btn">Login</Link>
             <Link to="/register" className="btn-primary small-btn">Register</Link>
           </>

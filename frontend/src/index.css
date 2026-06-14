@@ -1,7 +1,6 @@
-/* Import a modern font */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
 
-/* Global Reset & Variables */
 :root {
   --primary: #2e7d32;
   --primary-hover: #1b5e20;
@@ -31,19 +30,19 @@ body {
   color: var(--text-main);
   line-height: 1.6;
   max-width: 100vw;       
-  overflow-x: hidden;     /* Enforces no right-scrolling */
+  overflow-x: hidden;    
   margin: 0;
   padding: 0;
 }
 
-/* Typography */
+
 h1, h2, h3 {
   font-weight: 800;
   color: var(--primary);
   margin-bottom: 1rem;
 }
 
-/* Universal Inputs */
+
 input, select {
   width: 100%;
   padding: 12px 16px;
@@ -60,7 +59,7 @@ input:focus, select:focus {
   box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
 }
 
-/* Premium Buttons */
+
 button {
   display: inline-block;
   padding: 12px 24px;
@@ -81,7 +80,7 @@ button:hover {
   box-shadow: 0 6px 12px rgba(46, 125, 50, 0.3);
 }
 
-/* Navigation Bar Upgrade */
+
 nav {
   background-color: var(--card-bg);
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
@@ -112,7 +111,7 @@ nav a:hover {
   color: var(--primary);
 }
 
-/* Glassmorphism/Premium Cards */
+
 .premium-card {
   background: var(--card-bg);
   border-radius: var(--radius);
@@ -150,7 +149,7 @@ nav a:hover {
   top: 0;
   z-index: 1000;
 }
-/* Restored Navbar Layout */
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -169,7 +168,7 @@ nav a:hover {
   transform: translateY(-1px);
 }
 
-/* The new Login Button Style */
+
 .btn-outline-primary {
   background-color: transparent;
   color: var(--primary);
@@ -189,7 +188,7 @@ nav a:hover {
   transform: translateY(-2px);
 }
 
-/* Primary Button Hover (Register & Card Claim Buttons) */
+
 .btn-primary {
   background-color: var(--primary);
   color: var(--text-main);
@@ -203,7 +202,7 @@ nav a:hover {
   color: white
 }
 
-/* Danger Button Hover (Card Override Button) */
+
 .btn-danger {
   background-color: var(--danger);
   color: white;
@@ -244,7 +243,7 @@ nav a:hover {
   background-color: rgba(46, 125, 50, 0.08); 
   border: 1px solid rgba(46, 125, 50, 0.2);
 }
-/* Card Internal Spacing */
+
 .card-header {
   display: flex;
   justify-content: space-between;
@@ -264,7 +263,7 @@ nav a:hover {
   font-size: 0.95rem;
 }
 
-/* QR Code Display */
+
 .qr-container {
   margin-top: 1.5rem;
   padding: 1.5rem;
@@ -288,7 +287,7 @@ nav a:hover {
   box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
-/* Specific Button Styles */
+
 .full-width {
   width: 100%;
   margin-top: 1rem;
@@ -334,7 +333,7 @@ nav a:hover {
 .status-completed { background-color: #e3f2fd; color: #1565c0; }
 
 @media (max-width: 768px) {
-  /* 1. Navbar Stacking */
+  
   .navbar {
     padding: 15px 10px;
     width: 100%;
@@ -346,7 +345,7 @@ nav a:hover {
     gap: 15px;
   }
 
-  /* Force buttons to respect the screen width */
+  
   .nav-links a, 
   .nav-links button {
     width: 100%;
@@ -355,8 +354,7 @@ nav a:hover {
     margin: 0;
   }
 
-  /* --- FOOTER FIXES --- */
-  /* If your footer has a class like .footer or .footer-container */
+  
   footer, .footer {
     flex-direction: column;
     text-align: center;
@@ -364,7 +362,7 @@ nav a:hover {
     gap: 20px;
   }
 
-  /* Shrink the text safely */
+  
   footer h1, footer h2, footer h3 {
     font-size: 1.5rem !important;
     line-height: 1.3;
@@ -374,10 +372,10 @@ nav a:hover {
   footer p, footer a, footer li {
     font-size: 0.9rem;
     line-height: 1.5;
-    word-wrap: break-word; /* Prevents long emails/links from breaking the layout */
+    word-wrap: break-word; 
   }
 
-  /* If you have a grid layout in the footer, force it to one column */
+  
   .footer-links, .footer-grid {
     display: flex;
     flex-direction: column;
@@ -385,7 +383,7 @@ nav a:hover {
     gap: 15px;
   }
 
-  /* 2. Full-Width Mobile Buttons */
+  
   .btn-outline-primary, 
   .btn-primary, 
   .btn-ghost, 
@@ -396,7 +394,7 @@ nav a:hover {
   .btn-primary{
     padding-right: 1px;
   }
-  /* 3. Card Mobile Polish */
+  
   .premium-card {
     padding: 15px;
     margin: 10px;
@@ -408,13 +406,13 @@ nav a:hover {
     gap: 10px;
   }
 
-  /* 4. Analytics Page Fixes */
+  
   h2 {
-    font-size: 1.8rem !important; /* Shrink massive titles */
+    font-size: 1.8rem !important; 
   }
   
   .qr-box svg {
-    max-width: 100%; /* Prevent QR codes from breaking containers */
+    max-width: 100%; 
     height: auto;
   }
 }
@@ -426,7 +424,7 @@ nav a:hover {
     word-wrap: break-word;
   }
 
-  /* Scale down massive titles so they don't crash */
+ 
   h1 { font-size: 1.8rem !important; line-height: 1.2; }
   h2 { font-size: 1.5rem !important; line-height: 1.2; }
   h3 { font-size: 1.2rem !important; line-height: 1.3; }
@@ -436,10 +434,10 @@ nav a:hover {
     line-height: 1.5;
   }
 
-  /* Stop cards from pushing past the screen edge */
+  
   .premium-card {
     padding: 15px;
-    margin: 15px 0; /* Only margin on top/bottom, zero on sides */
+    margin: 15px 0; 
     width: 100%;
   }
 }
