@@ -1,4 +1,4 @@
-import { QRCodeSVG } from 'qrcode.react';
+import { QRCodeCanvas } from 'qrcode.react';
 
 const DonationCard = ({ donation, role, onClaim, onComplete }) => {
   const badgeClass = donation.status === 'available' ? 'status-available' : 
@@ -6,16 +6,15 @@ const DonationCard = ({ donation, role, onClaim, onComplete }) => {
 
   // Super clean function to download the QR code as an SVG image
   const downloadQR = () => {
-    const svg = document.getElementById(`qr-${donation._id}`);
-    if (!svg) return; // Safety check
-    const svgData = new XMLSerializer().serializeToString(svg);
-    const blob = new Blob([svgData], { type: "image/svg+xml;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
+    const canvas = document.getElementById(`qr-${donation._id}`);
+    if (!canvas) return; 
+    
+    // Grabs the canvas pixels and converts to a PNG link
+    const pngUrl = canvas.toDataURL("image/png");
     const link = document.createElement("a");
-    link.href = url;
-    link.download = `FoodBridge-Pickup-${donation.foodName}.svg`;
+    link.href = pngUrl;
+    link.download = `FoodBridge-Pickup-${donation.foodName}.png`;
     link.click();
-    URL.revokeObjectURL(url); // cleans up memory
   };
 
   return (
@@ -37,7 +36,7 @@ const DonationCard = ({ donation, role, onClaim, onComplete }) => {
           <p className="qr-title">Scan for Pickup</p>
           <div className="qr-box">
             {/* Added the exact ID required for the download function */}
-            <QRCodeSVG id={`qr-${donation._id}`} value={donation.qrCode} size={160} />
+            <QRCodeCanvas id={`qr-${donation._id}`} value={donation.qrCode} size={160} />
           </div>
           <button onClick={downloadQR} className="btn-outline-primary small-btn" style={{ width: '100%', marginTop: '5px' }}>
             📥 Download QR
