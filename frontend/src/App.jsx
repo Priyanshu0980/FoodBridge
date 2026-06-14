@@ -19,15 +19,20 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         
+        {/* Protected Donor Route - Flexible case handling */}
         <Route 
           path="/donor" 
-          element={token && role === 'donor' ? <DonorDashboard /> : <Navigate to="/login" />} 
+          element={token && (role === 'Donor' || role === 'donor') ? <DonorDashboard /> : <Navigate to="/login" />} 
         />
+        
+        {/* Protected NGO Route - Flexible case handling */}
         <Route 
           path="/ngo" 
-          element={token && role === 'ngo' ? <NgoDashboard /> : <Navigate to="/login" />} 
+          element={token && (role === 'NGO' || role === 'ngo') ? <NgoDashboard /> : <Navigate to="/login" />} 
         />
+        
         <Route path="/analytics" element={<Analytics />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   );

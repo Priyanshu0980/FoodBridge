@@ -2,22 +2,12 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import API from '../services/api';
 
-/*
-What is the logic for our form? 
-We hold the user's input in a state. Notice the exact values for our role dropdown below: 
-we are using strict lowercase 'donor' and 'ngo'. 
-Why? Because databases don't guess. Sending 'Donor' when the database expects 'donor' 
-will cause a validation failure. 
-Also, notice we removed the '/api' prefix from our POST request route because our base URL 
-in the API service configuration is already handling that routing for us.
-*/
-
 const Register = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
-    role: 'donor' 
+    role: 'Donor' // Standardized to match the backend capitalized Mongoose enum definition
   });
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -72,8 +62,8 @@ const Register = () => {
         
         <label><strong>Register As:</strong></label>
         <select name="role" value={formData.role} onChange={handleChange} style={{ padding: '10px' }}>
-          <option value="donor">Individual / Restaurant (Donor)</option>
-          <option value="ngo">NGO Volunteer (Claimer)</option>
+          <option value="Donor">Individual / Restaurant (Donor)</option>
+          <option value="NGO">NGO Volunteer (Claimer)</option>
         </select>
 
         <button type="submit" style={{ padding: '10px', backgroundColor: '#28a745', color: 'white', border: 'none', cursor: 'pointer' }}>
