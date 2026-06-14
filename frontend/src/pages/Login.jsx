@@ -27,9 +27,9 @@ const Login = () => {
 
       // Routing based on the strict database role
       if (response.data.role === 'donor') {
-        navigate('/donor-dashboard'); 
+        navigate('/DonorDashboard'); 
       } else if (response.data.role === 'ngo') {
-        navigate('/ngo-dashboard');
+        navigate('/NgoDashboard');
       } else {
         navigate('/'); 
       }
